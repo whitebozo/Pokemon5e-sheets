@@ -1,0 +1,106 @@
+<ol class="tab pokemon flexrow" data-group="primary" data-tab="pokemon">
+  <ol class="inventory-list">
+    <li class="inventory-header flexrow">
+      <h1 class="item-name flexrow"><i class="fa fa-users">Party Pokemon</i></h1>
+      <div class="item-controls">
+       <a class="tidy5e-delete-lock">
+         <label for="tidy5e-allow-delete" class="tidy5e-delete-toggle">
+           <span class="tidy5e-delete-disabled" title="show item delete button"><i class="fas fa-lock"></i>Delete disabled</span>
+           <span class="tidy5e-delete-enabled" title="hide item delete button"><i class="fas fa-unlock"></i>Delete enabled</span>
+         </label>
+       </a>
+       <a class="item-control item-create party-add" title="Add Pokemon to Party">
+         <i class="fas fa-plus-circle"></i> Add
+       </a>
+     </div>
+   </li>
+   <li class="item-detail flexrow bar">
+     &nbsp;&nbsp;&nbsp;&nbsp;{{actor.flags.Pokemon5e-sheets.partyItems.length}}
+     / <input type="text" class="item-control pokemon-override" title="Max Poke slots" value="{{actor.flags.Pokemon5e-sheets.slotMax}}" placeholder="3">
+     Poke Slots
+   </li>
+ <ol class="item-list">
+   {{#each actor.flags.Pokemon5e-sheets.partyItems as |pokemon tid| }}
+      <li class="item flexrow">
+        <div class="item-name flexrow rollable pokemon-roll" id="roll-{{tid}}" title="Display Pokemon Info">
+          <div class="item-image" style="background-image: url({{pokemon.actor.img}});"></div>
+          {{#if pokemon.name}}
+          <h4><i>{{pokemon.name}}</i> &nbsp;&nbsp; - &nbsp;&nbsp;</h4>
+          {{/if}}
+          <h4><b>{{pokemon.actor.name}}</b></h4>
+        </div>
+        <div class="item-detail">
+          <h4><b>XP:</b></h4>
+          <input class="party-xp" id="xp-{{tid}} name="pokemon.actor.data.details.xp.value" type="text" value="{{pokemon.actor.data.details.xp.value}}" data-dtype="Number" placeholder="0" maxlength="7">
+          <span class="max-xp">{{pokemon.actor.data.details.xp.max}}</span>
+        </div>
+        <div class="item-detail flexrow bar">
+          <div class="progress-bar">
+            <div class="pokemon-completion" style="width:{{pokemon.actor.data.details.xp.pct}}%;">
+              <span>{{pokemon.actor.data.details.xp.pct}}%</span>
+            </div>
+          </div>
+        </div>
+        <div class="item-controls">
+          <a class="item-control item-pc party-pc" id="pc-{{tid}}" title='Put in PC'><i class="fa fa-arrow-down to-pc-button"></i></a>
+          <a class="item-control item-delete party-delete" id="delete-{{tid}}" title='Delete Pokemon'><i class="fas fa-trash"></i></a>
+        </div>
+      </li>
+<!--Put Notes section here-->
+    <button class="notes">Pokemon Notes</button>
+    <div class="panel">
+      {{editor content=pokemon.actor.data.details.biography.value target="pokemon.actor.data.details.biography.value" button=true owner=owner editable=true}}
+    </div>
+    {{/each}}
+    </ol>
+    <br>
+    <li class="inventory-header flexrow">
+      <h1 class="item-name flexrow"><i class="fa fa-desktop">PC Pokemon</i></h1>
+      <div class="item-controls">
+        <a class="tidy5e-delete-lock">
+          <label for="tidy5e-allow-delete" class="tidy5e-delete-toggle">
+            <span class="tidy5e-delete-disabled" title="show item delete button"><i class="fas fa-lock"></i>Delete disabled</span>
+            <span class="tidy5e-delete-enabled" title="hide item delete button"><i class="fas fa-unlock"></i>Delete enabled</span>
+          </label>
+        </a>
+        <a class="item-control item-create pc-add" title="Add Pokemon to PC">
+          <i class="fas fa-plus-circle"></i> Add
+        </a>
+      </div>
+    </li>
+    <ol class="item-list">
+      {{#each actor.flags.Pokemon5e-sheets.pcItems as |pokemon tid| }}
+        <li class="item flexrow">
+          <div class="item-name flexrow rollable pokemon-roll" id="roll-{{tid}}" title="Display Pokemon Info">
+            <div class="item-image" style="background-image: url({{pokemon.actor.img}});"></div>
+            {{#if pokemon.name}}
+            <h4><i>{{pokemon.name}}</i> &nbsp;&nbsp; - &nbsp;&nbsp;</h4>
+            {{/if}}
+            <h4><b>{{pokemon.actor.name}}</b></h4>
+          </div>
+          <div class="item-detail">
+            <h4><b>XP:</b></h4>
+            <input class="pc-xp" id="xp-{{tid}} name="pokemon.actor.data.details.xp.value" type="text" value="{{pokemon.actor.data.details.xp.value}}" data-dtype="Number" placeholder="0" maxlength="7">
+            <span class="max-xp">{{pokemon.actor.data.details.xp.max}}</span>
+          </div>
+          <div class="item-detail flexrow bar">
+            <div class="progress-bar">
+              <div class="pokemon-completion" style="width:{{pokemon.actor.data.details.xp.pct}}%;">
+                <span>{{pokemon.actor.data.details.xp.pct}}%</span>
+              </div>
+            </div>
+          </div>
+          <div class="item-controls">
+            <a class="item-control item-pc pc-party" id="pc-{{tid}}" title='Remove from PC'><i class="fa fa-arrow-up to-party-button"></i></a>
+            <a class="item-control item-delete pc-delete" id="delete-{{tid}}" title='Delete Pokemon'><i class="fas fa-trash"></i></a>
+          </div>
+        </li>
+<!--Put Notes section here-->
+        <button class="notes">Pokemon Notes</button>
+        <div class="panel">
+          {{editor content=pokemon.actor.data.details.biography.value target="pokemon.actor.data.details.biography.value" button=true owner=owner editable=true}}
+        </div>
+        {{/each}}
+      </ol>
+    </ol>
+  </ol>

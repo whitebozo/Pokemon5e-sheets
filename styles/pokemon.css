@@ -1,0 +1,177 @@
+/*********************************/
+/*         Pokemon TAB        */
+/*****************************/
+
+/* Type Column */
+.pokemon .item-detail {
+	text-transform: capitalize;
+}
+
+/* Progress Columns */
+.pokemon .item-detail.bar {
+	flex: 1 !important;
+	padding-top: 1px;
+	line-height: 1;
+}
+
+/* Progress Override Input */
+.pokemon .item-detail .pokemon-override {
+	text-align: center;
+  padding-top: 1px;
+  line-height: 1;
+	display: inline;
+  max-width: 40px;
+}
+
+/* Pokemon Bar */
+.pokemon .progress-bar {
+	background-color: rgba(0,0,0,0.1);
+	border-radius: 4px;
+	height: 20px;
+	margin: 5px;
+}
+
+/* Pokemon Bar Progress */
+.pokemon .progress-bar .pokemon-completion {
+	color: #111111;
+	background-color: rgba(255,0,0,0.4);
+	border-radius: 4px;
+	height: 100%;
+	line-height: 20px;
+}
+
+/* Pokemon Bar Progress Percent Text */
+.pokemon .progress-bar .pokemon-completion span {
+	margin-left: 5px;
+}
+
+.to-pc-button {
+  color: green;
+}
+
+.to-party-button {
+  color: yellow;
+}
+
+.pokemon .notes {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 4px;
+	height: 20px
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 12px;
+  transition: 0.4s;
+}
+
+.pokemon .active .notes:hover {
+  background-color: #ccc;
+}
+
+.pokemon .panel {
+  padding: 2 8px;
+  display: none;
+  overflow: hidden;
+}
+
+.party-xp {
+	width: calc(7.5ch + .3rem);
+	max-height: 16px;
+	text-align: right;
+	padding: 2px .15rem 0 .15rem;
+	margin-bottom: -1px;
+}
+
+.pc-xp {
+	width: calc(7.5ch + .3rem);
+	max-height: 16px;
+	text-align: right;
+	padding: 2px .15rem 0 .15rem;
+	margin-bottom: -1px;
+}
+
+.max-xp {
+	padding-top: 3px;
+}
+
+/*********************************/
+/*           DIALOGS           */
+/*****************************/
+
+.pokemon-dialog .field {
+	display: flex;
+	margin-bottom: 10px;
+	padding-top: 5px;
+}
+
+.pokemon-dialog .field * {
+	flex: 5;
+}
+
+/*********************************/
+/* SUPPORT FOR D&D5E DARK MODE */
+/*****************************/
+
+/* Pokemon Bar */
+.dark-mode .pokemon .progress-bar {
+	background-color: #303030;
+}
+
+/* Pokemon Bar Progress */
+.dark-mode .pokemon .progress-bar .pokemon-completion {
+	background-color: #3F88E6;
+	color: #000000;
+}
+
+
+/*********************************/
+/*     SUPPORT FOR TIDY 5E     */
+/*****************************/
+
+/* Hide the lock by default */
+.pokemon .tidy5e-delete-lock {
+	display: none;
+}
+
+/* Show the lock when tidy is active*/
+.tidy5e .pokemon .tidy5e-delete-lock {
+	display: inline-block;
+}
+
+/* Tweak some item controls styles to fit the lock toggle */
+.tidy5e .pokemon .item-controls {
+	min-width: fit-content;
+	min-width: -moz-fit-content;
+}
+
+.tidy5e .pokemon .item-controls a {
+	min-width: fit-content;
+	min-width: -moz-fit-content;
+	flex: 1 !important;
+	margin-right: 5px;
+}
+
+.tidy5e .pokemon .item-controls .item-create {
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-right: 0px;
+}
+
+/* Controls dark mode support */
+.tidy5eDark .tidy5e.sheet.actor .pokemon .inventory-list .item-controls a,
+.tidy5eDark .tidy5e.sheet.actor .pokemon .inventory-list .item-controls a:hover {
+  color: var(--darkmode-primary-color);
+	font-weight: 300;
+}
+
+/* Pokemon bar dark mode support */
+.tidy5eDark .pokemon .progress-bar {
+	background-color: var(--darkmode-faint-color);
+}
+
+.tidy5eDark .pokemon .progress-bar .pokemon-completion {
+	background-color: var(--darkmode-secondary-accent);
+}

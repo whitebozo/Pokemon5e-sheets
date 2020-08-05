@@ -1,0 +1,35 @@
+<form>
+    <h3 class="form-header"><i class="fas fa-user-plus"></i> Add New Pokemon</h3>
+    <div class="form-group">
+        <label for="nickname">Nickname:</label><br>
+        <input type="text" id="nickname" name="nickname" value={{nickname}}>
+    </div>
+    <hr>
+    {{#if actor}}
+      <img src="{{actor.img}}" style="width:100px;height:100px"><br>
+      <label for="actor">Linked Pokemon:</label>
+      <label for="actor">{{actor.name}}</label><br>
+    {{else}}
+      <h2>No Pokemon Linked</h2>
+      <br><br><br><br><br>
+    {{/if}}
+    <div class="form-group">
+      <br>
+        <label>Pokemon to Link</label>
+        <select name="actor" id="pokeActor">
+          {{#select actor}}
+            <option value="" selected disabled hidden>Choose Pokemon to Link</option>
+            <option name="actor" value="none">Don't Link Pokemon</option>
+            {{#each others}}
+                <option name="actor" value="{{this.id}}">{{this.name}}</option>
+            {{/each}}
+          {{/select}}
+        </select>
+    </div>
+    <hr>
+    <footer class="sheet-footer flexrow">
+        <button type="submit" name="add">
+            <i class="fa fa-check"></i> Add Pokemon
+        </button>
+    </footer>
+</form>
